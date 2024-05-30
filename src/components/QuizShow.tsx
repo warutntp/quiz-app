@@ -1,13 +1,13 @@
 import React from "react";
 
-interface QuestionProps {
+interface QuizShowProps {
   question: string;
   answers: string[];
   handleAnswer: (answer: string) => void;
   selectedAnswer: string | null;
 }
 
-const Question: React.FC<QuestionProps> = ({
+const QuizShow: React.FC<QuizShowProps> = ({
   question,
   answers,
   handleAnswer,
@@ -33,4 +33,4 @@ const Question: React.FC<QuestionProps> = ({
   );
 };
 
-export default Question;
+export default QuizShow;

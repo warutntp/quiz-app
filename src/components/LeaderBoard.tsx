@@ -1,7 +1,8 @@
 import React from "react";
+import { LeaderModels } from "../types/LeaderModels";
 
 interface LeaderBoardProps {
-  scores: { name: string; score: number }[];
+  scores: LeaderModels.LeaderModel[];
 }
 
 const LeaderBoard: React.FC<LeaderBoardProps> = ({ scores }) => {

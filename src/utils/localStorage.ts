@@ -3,7 +3,11 @@ import { LeaderModels } from "../types/LeaderModels";
 export function saveLeaderDataToLocalStorage(
   state: LeaderModels.LeaderModel[]
 ) {
-  localStorage.setItem("leader-board", JSON.stringify(state));
+  try {
+    localStorage.setItem("leader-board", JSON.stringify(state));
+  } catch (error) {
+    console.error("Error saving leaderboard data to local storage:", error);
+  }
 }
 
 export function loadLeaderDataFromLocalStorage(): LeaderModels.LeaderModel[] {
@@ -11,7 +15,12 @@ export function loadLeaderDataFromLocalStorage(): LeaderModels.LeaderModel[] {
   if (data) {
     try {
       return JSON.parse(data);
-    } catch {
+    } catch (error) {
+      console.error(
+        "Error parsing leaderboard data from local storage:",
+        error
+      );
+      localStorage.removeItem("leader-board");
       return [];
     }
   }

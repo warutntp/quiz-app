@@ -1,8 +1,13 @@
 import React from "react";
-import QuestionPage from "./pages/QuestionPage";
+import QuizPage from "./pages/QuizPage";
+import { QuizProvider } from "./context/QuizContext";
 
 const App: React.FC = () => {
-  return <QuestionPage />;
+  return (
+    <QuizProvider>
+      <QuizPage />
+    </QuizProvider>
+  );
 };
 
 export default App;

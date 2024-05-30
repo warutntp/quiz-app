@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`QuizShow 1`] = `
+<div>
+  <div
+    class="p-4 border rounded-lg shadow-md bg-white"
+  >
+    <h2
+      class="text-lg font-bold mb-4"
+    >
+      Sample Question?
+    </h2>
+    <label
+      class="block my-2"
+    >
+      <input
+        class="mr-2"
+        name="answer"
+        type="radio"
+        value="Answer 1"
+      />
+      Answer 1
+    </label>
+    <label
+      class="block my-2"
+    >
+      <input
+        class="mr-2"
+        name="answer"
+        type="radio"
+        value="Answer 2"
+      />
+      Answer 2
+    </label>
+  </div>
+</div>
+`;

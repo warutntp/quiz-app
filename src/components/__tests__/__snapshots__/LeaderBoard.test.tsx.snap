@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeaderBoard 1`] = `
+<div>
+  <div
+    class="p-4 border rounded-lg shadow-md bg-white mt-4 max-h-[500px] overflow-y-auto"
+  >
+    <h2
+      class="text-lg font-bold mb-4"
+    >
+      LeaderBoard
+    </h2>
+    <ul>
+      <li
+        class="flex justify-between p-2 border-b"
+      >
+        <span>
+          John
+        </span>
+        <span>
+          100
+        </span>
+      </li>
+      <li
+        class="flex justify-between p-2 border-b"
+      >
+        <span>
+          Jane
+        </span>
+        <span>
+          90
+        </span>
+      </li>
+      <li
+        class="flex justify-between p-2 border-b"
+      >
+        <span>
+          Doe
+        </span>
+        <span>
+          80
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

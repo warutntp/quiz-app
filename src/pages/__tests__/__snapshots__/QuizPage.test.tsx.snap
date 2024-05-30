@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App 1`] = `
+<div>
+  <div
+    class="p-4 max-w-lg mx-auto"
+  >
+    <h1
+      class="text-center text-2xl font-bold mb-4"
+    >
+      Quiz App
+    </h1>
+    <form
+      class="mb-4"
+    >
+      <div
+        class="mb-2"
+      >
+        <label
+          class="block text-sm font-medium text-gray-700"
+          for="name"
+        >
+          Enter your name:
+        </label>
+        <input
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+          id="name"
+          required=""
+          type="text"
+          value=""
+        />
+      </div>
+      <button
+        class="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700"
+        type="submit"
+      >
+        Start Quiz
+      </button>
+    </form>
+    <div
+      class="p-4 border rounded-lg shadow-md bg-white mt-4 max-h-[500px] overflow-y-auto"
+    >
+      <h2
+        class="text-lg font-bold mb-4"
+      >
+        LeaderBoard
+      </h2>
+      <ul />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`QuizPage 1`] = `
+<div>
+  <div
+    class="p-4 max-w-lg mx-auto"
+  >
+    <h1
+      class="text-center text-2xl font-bold mb-4"
+    >
+      Quiz App
+    </h1>
+    <form
+      class="mb-4"
+    >
+      <div
+        class="mb-2"
+      >
+        <label
+          class="block text-sm font-medium text-gray-700"
+          for="name"
+        >
+          Enter your name:
+        </label>
+        <input
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+          id="name"
+          required=""
+          type="text"
+          value=""
+        />
+      </div>
+      <button
+        class="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700"
+        type="submit"
+      >
+        Start Quiz
+      </button>
+    </form>
+    <div
+      class="p-4 border rounded-lg shadow-md bg-white mt-4 max-h-[500px] overflow-y-auto"
+    >
+      <h2
+        class="text-lg font-bold mb-4"
+      >
+        LeaderBoard
+      </h2>
+      <ul />
+    </div>
+  </div>
+</div>
+`;
