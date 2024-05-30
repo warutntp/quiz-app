@@ -5,11 +5,13 @@ interface LeaderBoardProps {
 }
 
 const LeaderBoard: React.FC<LeaderBoardProps> = ({ scores }) => {
+  const sortedScores = scores.slice().sort((a, b) => b.score - a.score);
+
   return (
-    <div className="p-4 border rounded-lg shadow-md bg-white mt-4">
+    <div className="p-4 border rounded-lg shadow-md bg-white mt-4 max-h-[500px] overflow-y-auto">
       <h2 className="text-lg font-bold mb-4">LeaderBoard</h2>
       <ul>
-        {scores.map((entry, index) => (
+        {sortedScores.map((entry, index) => (
           <li key={index} className="flex justify-between p-2 border-b">
             <span>{entry.name}</span>
             <span>{entry.score}</span>

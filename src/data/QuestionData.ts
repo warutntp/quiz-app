@@ -1,6 +1,6 @@
-import { QuestionType } from "../types/QuestionType";
+import { QuestionModels } from "../types/QuestionModels";
 
-export const QuestionData: QuestionType[] = [
+export const QuestionData: QuestionModels.QuestionModel[] = [
   {
     question: "What is the capital of France?",
     answers: ["Paris", "London", "Berlin", "Rome"],
