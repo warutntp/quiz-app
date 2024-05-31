@@ -1,6 +1,6 @@
 import { QuizModels } from "../types/QuizModels";
 
-export const QueizData: QuizModels.QuizModel[] = [
+export const QuizData: QuizModels.QuizModel[] = [
   {
     question: "What is the capital of France?",
     answers: ["Paris", "London", "Berlin", "Rome"],

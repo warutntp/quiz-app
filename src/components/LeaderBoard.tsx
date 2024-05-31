@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import { LeaderModels } from "../types/LeaderModels";
 import { QuizContext } from "../context/QuizContext";
 
@@ -7,12 +7,16 @@ interface LeaderBoardProps {
 }
 
 const LeaderBoard: React.FC<LeaderBoardProps> = ({ scores }) => {
-  const sortedScores = scores.slice().sort((a, b) => b.score - a.score);
   const context = useContext(QuizContext);
   if (!context) {
     throw new Error("QuizContext must be used within a QuizProvider");
   }
   const { state } = context;
+
+  const sortedScores = useMemo(
+    () => scores.slice().sort((a, b) => b.score - a.score),
+    [scores]
+  );
 
   return (
     <div
@@ -25,7 +29,7 @@ const LeaderBoard: React.FC<LeaderBoardProps> = ({ scores }) => {
       <h2 className="text-lg font-bold mb-4">LeaderBoard</h2>
       <ul>
         {sortedScores.map((entry, index) => (
-          <li key={index} className="flex justify-between p-2 border-b">
+          <li key={entry.name} className="flex justify-between p-2 border-b">
             <span>{entry.name}</span>
             <span>{entry.score}</span>
           </li>

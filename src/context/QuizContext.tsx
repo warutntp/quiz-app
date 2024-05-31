@@ -4,11 +4,12 @@ import React, {
   ReactNode,
   Dispatch,
   useEffect,
+  useMemo,
 } from "react";
 import { QuizModels } from "../types/QuizModels";
 import { LeaderModels } from "../types/LeaderModels";
 import { RandomData } from "../utils/RandomData";
-import { QueizData } from "../data/QuizData";
+import { QuizData } from "../data/QuizData";
 import {
   loadLeaderDataFromLocalStorage,
   saveLeaderDataToLocalStorage,
@@ -49,8 +50,8 @@ const quizReducer = (state: State, action: Action): State => {
   switch (action.type) {
     case "SET_NAME":
       return { ...state, name: action.payload };
-    case "START_QUIZ":
-      const shuffled = RandomData([...QueizData], 20);
+    case "START_QUIZ": {
+      const shuffled = RandomData([...QuizData], 20);
       return {
         ...state,
         isQuizActive: true,
@@ -59,10 +60,12 @@ const quizReducer = (state: State, action: Action): State => {
         questionIndex: 0,
         answers: Array(shuffled.length).fill(null),
       };
-    case "ANSWER_QUESTION":
+    }
+    case "ANSWER_QUESTION": {
       const newAnswers = [...state.answers];
       newAnswers[state.questionIndex] = action.payload;
       return { ...state, answers: newAnswers };
+    }
     case "NEXT_QUESTION":
       if (state.questionIndex < state.totalQuestions.length - 1) {
         return {
@@ -81,7 +84,7 @@ const quizReducer = (state: State, action: Action): State => {
         };
       }
       return state;
-    case "SUBMIT_QUIZ":
+    case "SUBMIT_QUIZ": {
       const newScore = state.answers.reduce((acc, answer, idx) => {
         if (answer === state.totalQuestions[idx].correct) {
           return acc + 1;
@@ -101,6 +104,7 @@ const quizReducer = (state: State, action: Action): State => {
         isQuizActive: false,
         leaderBoard: newLeaderBoard,
       };
+    }
     case "LOAD_LEADERBOARD":
       return { ...state, leaderBoard: action.payload };
     default:
@@ -121,12 +125,12 @@ const QuizProvider: React.FC<{ children?: ReactNode }> = ({ children }) => {
   useEffect(() => {
     const savedLeaderBoard = loadLeaderDataFromLocalStorage();
     dispatch({ type: "LOAD_LEADERBOARD", payload: savedLeaderBoard });
-  }, []);
+  }, [dispatch]);
+
+  const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   return (
-    <QuizContext.Provider value={{ state, dispatch }}>
-      {children}
-    </QuizContext.Provider>
+    <QuizContext.Provider value={contextValue}>{children}</QuizContext.Provider>
   );
 };
 

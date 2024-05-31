@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useCallback, useContext } from "react";
 import { QuizContext } from "../context/QuizContext";
 import QuizShow from "../components/QuizShow";
 import LeaderBoard from "../components/LeaderBoard";
@@ -13,30 +13,36 @@ const QuizPage: React.FC = () => {
 
   const { state, dispatch } = context;
 
-  const handleSubmitName = (e: React.FormEvent) => {
-    e.preventDefault();
-    dispatch({ type: "START_QUIZ" });
-  };
+  const handleSubmitName = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      dispatch({ type: "START_QUIZ" });
+    },
+    [dispatch]
+  );
 
-  const handleAnswer = (answer: string) => {
-    dispatch({ type: "ANSWER_QUESTION", payload: answer });
-  };
+  const handleAnswer = useCallback(
+    (answer: string) => {
+      dispatch({ type: "ANSWER_QUESTION", payload: answer });
+    },
+    [dispatch]
+  );
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     dispatch({ type: "NEXT_QUESTION" });
-  };
+  }, [dispatch]);
 
-  const handleBack = () => {
+  const handleBack = useCallback(() => {
     dispatch({ type: "PREVIOUS_QUESTION" });
-  };
+  }, [dispatch]);
 
-  const handleSubmitQuiz = () => {
+  const handleSubmitQuiz = useCallback(() => {
     if (state.answers.some((answer) => answer === null)) {
       alert("Please answer all questions before submitting.");
       return;
     }
     dispatch({ type: "SUBMIT_QUIZ" });
-  };
+  }, [dispatch, state.answers]);
 
   return (
     <div className="p-4 max-w-lg mx-auto">
