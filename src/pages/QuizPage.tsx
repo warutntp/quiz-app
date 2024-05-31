@@ -5,14 +5,14 @@ import LeaderBoard from "../components/LeaderBoard";
 import QuizForm from "../components/QuizForm";
 import QuizNavigation from "../components/QuizNavigation";
 
-const QuizPage = () => {
+const QuizPage: React.FC = () => {
   const context = useContext(QuizContext);
-
   if (!context) {
     throw new Error("QuizContext must be used within a QuizProvider");
   }
 
   const { state, dispatch } = context;
+
   const handleSubmitName = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch({ type: "START_QUIZ" });
@@ -51,8 +51,7 @@ const QuizPage = () => {
       {state.isQuizActive && state.currentQuestion && (
         <>
           <p className="mt-4">
-            Question {state.questionIndex + 1} of{" "}
-            {state.shuffledQuestions.length}
+            Question {state.questionIndex + 1} of {state.totalQuestions.length}
           </p>
           <QuizShow
             question={state.currentQuestion.question}
@@ -62,7 +61,7 @@ const QuizPage = () => {
           />
           <QuizNavigation
             questionIndex={state.questionIndex}
-            shuffledQuestions={state.shuffledQuestions.length}
+            totalQuestions={state.totalQuestions.length}
             answers={state.answers}
             handleNext={handleNext}
             handleBack={handleBack}

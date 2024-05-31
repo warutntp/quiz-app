@@ -11,7 +11,7 @@ test("QuizNavigation", () => {
   const { container } = render(
     <QuizNavigation
       questionIndex={0}
-      shuffledQuestions={10}
+      totalQuestions={10}
       answers={["Answer"]}
       handleNext={handleNext}
       handleBack={handleBack}
@@ -29,7 +29,7 @@ test("renders navigation buttons and handles clicks correctly", () => {
   render(
     <QuizNavigation
       questionIndex={0}
-      shuffledQuestions={10}
+      totalQuestions={10}
       answers={["Answer"]}
       handleNext={handleNext}
       handleBack={handleBack}
@@ -40,4 +40,20 @@ test("renders navigation buttons and handles clicks correctly", () => {
   const nextButton = screen.getByText("Next");
   fireEvent.click(nextButton);
   expect(handleNext).toHaveBeenCalled();
+});
+
+test("Submit button is disabled if some answers are null", () => {
+  render(
+    <QuizNavigation
+      questionIndex={9}
+      totalQuestions={10}
+      answers={Array(9).fill("Answer").concat([null])}
+      handleNext={jest.fn()}
+      handleBack={jest.fn()}
+      handleSubmitQuiz={jest.fn()}
+    />
+  );
+
+  const submitButton = screen.getByText("Submit");
+  expect(submitButton).toBeDisabled();
 });

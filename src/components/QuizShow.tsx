@@ -17,7 +17,11 @@ const QuizShow: React.FC<QuizShowProps> = ({
     <div className="p-4 border rounded-lg shadow-md bg-white">
       <h2 className="text-lg font-bold mb-4">{question}</h2>
       {answers.map((answer, index) => (
-        <label key={index} className="block my-2">
+        <label
+          key={index}
+          className="block my-2"
+          aria-label={`Answer ${index + 1}`}
+        >
           <input
             type="radio"
             name="answer"

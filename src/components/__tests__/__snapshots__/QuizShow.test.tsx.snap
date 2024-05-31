@@ -11,6 +11,7 @@ exports[`QuizShow 1`] = `
       Sample Question?
     </h2>
     <label
+      aria-label="Answer 1"
       class="block my-2"
     >
       <input
@@ -22,6 +23,7 @@ exports[`QuizShow 1`] = `
       Answer 1
     </label>
     <label
+      aria-label="Answer 2"
       class="block my-2"
     >
       <input

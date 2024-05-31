@@ -21,7 +21,7 @@ type State = {
   score: number;
   isQuizActive: boolean;
   questionIndex: number;
-  shuffledQuestions: QuizModels.QuizModel[];
+  totalQuestions: QuizModels.QuizModel[];
   answers: string[];
 };
 
@@ -32,7 +32,7 @@ const initialState: State = {
   score: 0,
   isQuizActive: false,
   questionIndex: 0,
-  shuffledQuestions: [],
+  totalQuestions: [],
   answers: [],
 };
 
@@ -54,7 +54,7 @@ const quizReducer = (state: State, action: Action): State => {
       return {
         ...state,
         isQuizActive: true,
-        shuffledQuestions: shuffled,
+        totalQuestions: shuffled,
         currentQuestion: shuffled[0],
         questionIndex: 0,
         answers: Array(shuffled.length).fill(null),
@@ -64,11 +64,11 @@ const quizReducer = (state: State, action: Action): State => {
       newAnswers[state.questionIndex] = action.payload;
       return { ...state, answers: newAnswers };
     case "NEXT_QUESTION":
-      if (state.questionIndex < state.shuffledQuestions.length - 1) {
+      if (state.questionIndex < state.totalQuestions.length - 1) {
         return {
           ...state,
           questionIndex: state.questionIndex + 1,
-          currentQuestion: state.shuffledQuestions[state.questionIndex + 1],
+          currentQuestion: state.totalQuestions[state.questionIndex + 1],
         };
       }
       return state;
@@ -77,13 +77,13 @@ const quizReducer = (state: State, action: Action): State => {
         return {
           ...state,
           questionIndex: state.questionIndex - 1,
-          currentQuestion: state.shuffledQuestions[state.questionIndex - 1],
+          currentQuestion: state.totalQuestions[state.questionIndex - 1],
         };
       }
       return state;
     case "SUBMIT_QUIZ":
       const newScore = state.answers.reduce((acc, answer, idx) => {
-        if (answer === state.shuffledQuestions[idx].correct) {
+        if (answer === state.totalQuestions[idx].correct) {
           return acc + 1;
         }
         return acc;

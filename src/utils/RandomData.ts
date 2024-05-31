@@ -1,7 +1,4 @@
-export const RandomData = (array: any[], numQuestions: number) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array.slice(0, numQuestions);
+export const RandomData = <T>(array: T[], numQuestions: number): T[] => {
+  const shuffledArray = array.sort(() => 0.5 - Math.random());
+  return shuffledArray.slice(0, numQuestions);
 };

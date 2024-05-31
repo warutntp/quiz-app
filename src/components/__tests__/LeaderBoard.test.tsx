@@ -1,5 +1,3 @@
-// src/components/__tests__/LeaderBoard.test.tsx
-
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import LeaderBoard from "../LeaderBoard";

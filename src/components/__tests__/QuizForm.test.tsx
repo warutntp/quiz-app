@@ -1,12 +1,10 @@
-// src/components/__tests__/QuizForm.test.tsx
-
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import QuizForm from "../QuizForm";
 import "@testing-library/jest-dom/extend-expect";
 
 test("QuizForm", () => {
-  const handleSubmitName = jest.fn();
+  const handleSubmitName = jest.fn((e) => e.preventDefault());
   const setName = jest.fn();
 
   const { container } = render(
@@ -16,7 +14,7 @@ test("QuizForm", () => {
 });
 
 test("renders quiz form and submits correctly", () => {
-  const handleSubmitName = jest.fn();
+  const handleSubmitName = jest.fn((e) => e.preventDefault());
   const setName = jest.fn();
   render(
     <QuizForm name="" setName={setName} handleSubmitName={handleSubmitName} />

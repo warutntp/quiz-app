@@ -11,18 +11,12 @@ export function saveLeaderDataToLocalStorage(
 }
 
 export function loadLeaderDataFromLocalStorage(): LeaderModels.LeaderModel[] {
-  const data = localStorage.getItem("leader-board");
-  if (data) {
-    try {
-      return JSON.parse(data);
-    } catch (error) {
-      console.error(
-        "Error parsing leaderboard data from local storage:",
-        error
-      );
-      localStorage.removeItem("leader-board");
-      return [];
-    }
+  try {
+    const data = localStorage.getItem("leader-board");
+    return data ? JSON.parse(data) : [];
+  } catch (error) {
+    console.error("Error parsing leaderboard data from local storage:", error);
+    localStorage.removeItem("leader-board");
+    return [];
   }
-  return [];
 }

@@ -1,8 +1,5 @@
-// src/pages/__tests__/QuizPage.test.tsx
-
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { act } from "react";
 import QuizPage from "../QuizPage";
 import { QuizProvider } from "../../context/QuizContext";
 import "@testing-library/jest-dom/extend-expect";
