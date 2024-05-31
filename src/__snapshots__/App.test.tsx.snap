@@ -38,7 +38,7 @@ exports[`App 1`] = `
       </button>
     </form>
     <div
-      class="p-4 border rounded-lg shadow-md bg-white mt-4 max-h-[500px] overflow-y-auto"
+      class="p-4 border rounded-lg shadow-md bg-white mt-4 overflow-y-auto max-h-[600px]"
     >
       <h2
         class="text-lg font-bold mb-4"

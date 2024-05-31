@@ -50,7 +50,7 @@ const QuizPage: React.FC = () => {
       )}
       {state.isQuizActive && state.currentQuestion && (
         <>
-          <p className="mt-4">
+          <p className="mt-4 mb-2">
             Question {state.questionIndex + 1} of {state.totalQuestions.length}
           </p>
           <QuizShow

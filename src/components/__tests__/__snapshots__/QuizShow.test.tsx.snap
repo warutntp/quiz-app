@@ -10,30 +10,38 @@ exports[`QuizShow 1`] = `
     >
       Sample Question?
     </h2>
-    <label
-      aria-label="Answer 1"
-      class="block my-2"
+    <div
+      class="px-2 mb-4 border rounded-lg shadow bg-blue-100 hover:bg-blue-300"
     >
-      <input
-        class="mr-2"
-        name="answer"
-        type="radio"
-        value="Answer 1"
-      />
-      Answer 1
-    </label>
-    <label
-      aria-label="Answer 2"
-      class="block my-2"
+      <label
+        aria-label="Answer 1"
+        class="block my-2"
+      >
+        <input
+          class="mr-2"
+          name="answer"
+          type="radio"
+          value="Answer 1"
+        />
+        Answer 1
+      </label>
+    </div>
+    <div
+      class="px-2 mb-4 border rounded-lg shadow bg-blue-100 hover:bg-blue-300"
     >
-      <input
-        class="mr-2"
-        name="answer"
-        type="radio"
-        value="Answer 2"
-      />
-      Answer 2
-    </label>
+      <label
+        aria-label="Answer 2"
+        class="block my-2"
+      >
+        <input
+          class="mr-2"
+          name="answer"
+          type="radio"
+          value="Answer 2"
+        />
+        Answer 2
+      </label>
+    </div>
   </div>
 </div>
 `;

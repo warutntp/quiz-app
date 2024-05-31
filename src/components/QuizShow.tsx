@@ -17,21 +17,26 @@ const QuizShow: React.FC<QuizShowProps> = ({
     <div className="p-4 border rounded-lg shadow-md bg-white">
       <h2 className="text-lg font-bold mb-4">{question}</h2>
       {answers.map((answer, index) => (
-        <label
+        <div
           key={index}
-          className="block my-2"
-          aria-label={`Answer ${index + 1}`}
+          className="px-2 mb-4 border rounded-lg shadow bg-blue-100 hover:bg-blue-300"
         >
-          <input
-            type="radio"
-            name="answer"
-            value={answer}
-            checked={selectedAnswer === answer}
-            onChange={() => handleAnswer(answer)}
-            className="mr-2"
-          />
-          {answer}
-        </label>
+          <label
+            key={index}
+            className="block my-2"
+            aria-label={`Answer ${index + 1}`}
+          >
+            <input
+              type="radio"
+              name="answer"
+              value={answer}
+              checked={selectedAnswer === answer}
+              onChange={() => handleAnswer(answer)}
+              className="mr-2"
+            />
+            {answer}
+          </label>
+        </div>
       ))}
     </div>
   );

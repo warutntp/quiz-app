@@ -21,19 +21,15 @@ const QuizNavigation: React.FC<QuizNavigationProps> = ({
   const isSubmitDisabled = answers.some((answer) => answer === null);
 
   return (
-    <div
-      className={`flex mt-4 ${
-        questionIndex > 0 ? "justify-between" : "justify-end"
-      }`}
-    >
-      {questionIndex > 0 && (
-        <button
-          onClick={handleBack}
-          className="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700"
-        >
-          Back
-        </button>
-      )}
+    <div className="flex mt-4 justify-between">
+      <button
+        onClick={handleBack}
+        className={`py-2 px-4 ${
+          questionIndex === 0 ? "bg-gray-500" : "bg-blue-500"
+        } text-white rounded hover:bg-blue-700`}
+      >
+        Back
+      </button>
       {questionIndex < totalQuestions - 1 && (
         <button
           onClick={handleNext}

@@ -1,9 +1,8 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import LeaderBoard from "../LeaderBoard";
 import "@testing-library/jest-dom/extend-expect";
 import { LeaderModels } from "../../types/LeaderModels";
-
+import { QuizProvider } from "../../context/QuizContext";
 const mockScores: LeaderModels.LeaderModel[] = [
   { name: "John", score: 100 },
   { name: "Jane", score: 90 },
@@ -11,12 +10,20 @@ const mockScores: LeaderModels.LeaderModel[] = [
 ];
 
 test("LeaderBoard", () => {
-  const { container } = render(<LeaderBoard scores={mockScores} />);
+  const { container } = render(
+    <QuizProvider>
+      <LeaderBoard scores={mockScores} />
+    </QuizProvider>
+  );
   expect(container).toMatchSnapshot();
 });
 
 test("renders leaderboard correctly", () => {
-  render(<LeaderBoard scores={mockScores} />);
+  render(
+    <QuizProvider>
+      <LeaderBoard scores={mockScores} />
+    </QuizProvider>
+  );
 
   expect(screen.getByText("LeaderBoard")).toBeInTheDocument();
   expect(screen.getByText("John")).toBeInTheDocument();
