@@ -8,9 +8,6 @@ interface LeaderBoardProps {
 
 const LeaderBoard: React.FC<LeaderBoardProps> = ({ scores }) => {
   const context = useContext(QuizContext);
-  if (!context) {
-    throw new Error("QuizContext must be used within a QuizProvider");
-  }
   const { state } = context;
 
   const sortedScores = useMemo(

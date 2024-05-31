@@ -7,10 +7,6 @@ import QuizNavigation from "../components/QuizNavigation";
 
 const QuizPage: React.FC = () => {
   const context = useContext(QuizContext);
-  if (!context) {
-    throw new Error("QuizContext must be used within a QuizProvider");
-  }
-
   const { state, dispatch } = context;
 
   const handleSubmitName = useCallback(

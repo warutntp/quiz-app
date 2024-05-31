@@ -117,7 +117,7 @@ interface QuizContextProps {
   dispatch: Dispatch<Action>;
 }
 
-const QuizContext = createContext<QuizContextProps | undefined>(undefined);
+const QuizContext = createContext<QuizContextProps>(undefined as any);
 
 const QuizProvider: React.FC<{ children?: ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(quizReducer, initialState);
