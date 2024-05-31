@@ -34,14 +34,16 @@ npm install
 npm start
 ```
 
-Open your browser and navigate to http://localhost:3000.
+Open your browser and navigate to <http://localhost:3000>.
 
 4. To run the tests, use the following command:
+
 ```bash
 npm test
 ```
 
 ## Usage
+
 1. On the homepage, enter your name and click "Start Quiz" to begin.
 2. Answer the multiple-choice questions by selecting the appropriate radio button.
 3. Use the "Next" and "Back" buttons to navigate between questions.
@@ -49,6 +51,7 @@ npm test
 5. View the leaderboard to see your score compared to others.
 
 ## Project Structure
+
 - **`src/components`**: Contains all the React components used in the app.
   - **`LeaderBoard.tsx`**: Component to display the leaderboard.
   - **`QuizForm.tsx`**: Component for the quiz start form where users enter their name.
