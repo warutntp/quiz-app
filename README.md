@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+# Quiz App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple quiz application built with React and TypeScript. The app allows users to take a quiz, answer multiple-choice questions, and view a leaderboard with high scores.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- User can enter their name to start the quiz.
+- Quiz contains multiple-choice questions.
+- Users can navigate between questions using "Next" and "Back" buttons.
+- Users can submit their quiz to see their score.
+- A leaderboard displays the top scores.
+- The leaderboard data is persisted in the local storage.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run this project locally, follow these steps:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clone the repository:
 
-### `npm test`
+```bash
+git clone git@github.com:warutntp/quiz-app.git
+cd quiz-app
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install dependencies:
 
-### `npm run build`
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Start the development server:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Open your browser and navigate to http://localhost:3000.
 
-### `npm run eject`
+4. To run the tests, use the following command:
+```bash
+npm test
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Usage
+1. On the homepage, enter your name and click "Start Quiz" to begin.
+2. Answer the multiple-choice questions by selecting the appropriate radio button.
+3. Use the "Next" and "Back" buttons to navigate between questions.
+4. Once all questions are answered, click "Submit" to see your score.
+5. View the leaderboard to see your score compared to others.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Structure
+- **`src/components`**: Contains all the React components used in the app.
+  - **`LeaderBoard.tsx`**: Component to display the leaderboard.
+  - **`QuizForm.tsx`**: Component for the quiz start form where users enter their name.
+  - **`QuizNavigation.tsx`**: Component with navigation buttons for the quiz.
+  - **`QuizShow.tsx`**: Component to display the quiz questions and answers.
+- **`src/context`**: Contains the context and provider for managing quiz state.
+  - **`QuizContext.tsx`**: Context and reducer for quiz state management.
+- **`src/data`**: Contains the quiz data.
+  - **`QuizData.ts`**: Array of quiz questions and answers.
+- **`src/pages`**: Contains the main page component.
+  - **`QuizPage.tsx`**: Main page component that uses all other components.
+- **`src/types`**: Type definitions for the project.
+  - **`LeaderModels.d.ts`**:Type definitions for the leaderboard models.
+  - **`QuizModels.d.ts`**: Type definitions for the quiz models.
+- **`src/utils`**: Utility functions for the project.
+  - **`LocalStorage.ts`**: Functions to load and save leaderboard data from/to local storage.
+  - **`RandomData.ts`**: Function to shuffle and select a subset of quiz questions.
+- **`src/App.tsx`**: Root component of the application.
+- **`src/index.tsx`**: Entry point of the application.
+- **`package.json`**: Project dependencies and scripts.
